@@ -7,7 +7,7 @@
 </h2>
 
 <p align="center">
-  <a href="https://www.tensorflow.org/versions"><img alt="TensorFlow versions" src="https://img.shields.io/badge/tensorflow-2.10–2.12-f57000?style=flat"></a>
+  <a href="https://www.tensorflow.org/versions"><img alt="TensorFlow versions" src="https://img.shields.io/badge/tensorflow-2.10–2.13-f57000?style=flat"></a>
   <a href="https://www.python.org/downloads"><img alt="Python versions" src="https://img.shields.io/badge/python-3.7–3.11-blue?style=flat"></a>
   <a href="https://pypi.python.org/pypi/calotron"><img alt="PyPI - Version" src="https://img.shields.io/pypi/v/calotron"></a>
   <a href="https://github.com/mbarbetti/calotron/blob/main/LICENSE"><img alt="GitHub - License" src="https://img.shields.io/github/license/mbarbetti/calotron"></a>
@@ -29,12 +29,12 @@
 
 ### Transformers
 
-|         Models        | Generator | Implementation | Test | Design inspired by |
-|:---------------------:|:---------:|:--------------:|:----:|:---------------------------------------------------:|
-|     `Transformer`     |     ❌    |       ✅       |  ✅  | [1](https://arxiv.org/abs/1706.03762), [4](https://arxiv.org/abs/2004.08249) |
-| `OptionalTransformer` |     ❌    |       ✅       |  ✅  | [1](https://arxiv.org/abs/1706.03762), [4](https://arxiv.org/abs/2004.08249) |
-|  `MaskedTransformer`  |     ❌    |       🛠️       |  ❌  | |
-|    `GigaGenerator`    |     ✅    |       ✅       |  ✅  | [5](https://arxiv.org/abs/2303.05511), [6](https://arxiv.org/abs/2107.04589) |
+|         Models        | Implementation | Generator | Test | Design inspired by |
+|:---------------------:|:--------------:|:---------:|:----:|:---------------------------------------------------:|
+|     `Transformer`     |       ✅       |     ❌    |  ✅  | [1](https://arxiv.org/abs/1706.03762), [4](https://arxiv.org/abs/2004.08249) |
+| `OptionalTransformer` |       ✅       |     ❌    |  ✅  | [1](https://arxiv.org/abs/1706.03762), [4](https://arxiv.org/abs/2004.08249) |
+|  `MaskedTransformer`  |       🛠️       |     ❌    |  ❌  | |
+|    `GigaGenerator`    |       ✅       |     ✅    |  ✅  | [5](https://arxiv.org/abs/2303.05511), [6](https://arxiv.org/abs/2107.04589) |
 
 ### Discriminators
 
