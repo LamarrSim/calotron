@@ -5,22 +5,23 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "calotron"
 dynamic = ["version"]
-description = "Transformer-based models to fast-simulate the LHCb ECAL detector"
+description = "Transformer-based models to flash-simulate the LHCb ECAL detector"
 readme = "README.md"
-requires-python = ">=3.7, <=3.11"
+requires-python = ">=3.7, <3.12"
 license = {text = "GPLv3 License"}
 authors = [
-  {name = "Matteo Barbetti", email = "matteo.barbetti@fi.infn.it"},
+  {name = "Matteo Barbetti", email = "matteo.barbetti@cnaf.infn.it"},
   {name = "Lucio Anderlini", email = "lucio.anderlini@fi.infn.it"},
 ]
 keywords = [
   "tensorflow",
   "machine learning",
   "deep learning",
+  "generative models",
   "transformer",
   "lhcb experiment",
   "lamarr",
-  "ultra-fast simulation",
+  "flash-simulation",
   "calorimeter",
 ]
 classifiers = [
@@ -38,7 +39,6 @@ classifiers = [
 dependencies = [
   "tensorflow>=2.10",
   # "hopaas-client",   # to be released on PyPI
-  "pyyaml"
 ]
 
 [project.optional-dependencies]
@@ -49,15 +49,15 @@ lamarr = [
   "matplotlib",
   "scikit-learn",
   "html-reports>=0.2",
+  "pyyaml",
 ]
 style = [
-  "black",
-  "flake8",
-  "isort[colors]",
+  "ruff",
 ]
 tests = [
   "pytest>=6.0",
   "pytest-cov",
+  "pyyaml",
 ]
 
 [project.urls]
@@ -66,13 +66,72 @@ repository = "https://github.com/mbarbetti/calotron"
 [tool.setuptools.dynamic]
 version = {attr = "calotron.__version__"}
 
-[tool.black]
-target-version = ["py37", "py38", "py39", "py310", "py311"]
-color = true
-skip_magic_trailing_comma = true
+[tool.ruff]
+# Exclude a variety of commonly ignored directories.
+exclude = [
+  ".bzr",
+  ".direnv",
+  ".eggs",
+  ".git",
+  ".git-rewrite",
+  ".hg",
+  ".mypy_cache",
+  ".nox",
+  ".pants.d",
+  ".pytype",
+  ".ruff_cache",
+  ".svn",
+  ".tox",
+  ".venv",
+  "__pypackages__",
+  "_build",
+  "buck-out",
+  "build",
+  "dist",
+  "node_modules",
+  "venv",
+]
 
-[tool.isort]
-profile = "black"
-known_first_party = ["src", "tests"]
-skip_gitignore = true
-color_output = true
+# Same as Black.
+line-length = 88
+indent-width = 4
+
+# Assume Python 3.8
+target-version = "py38"
+
+# Enable linting and formatting for .ipynb files.
+extend-include = ["*.ipynb"]
+
+[tool.ruff.lint]
+# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`) codes by default.
+# Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
+# McCabe complexity (`C901`) by default.
+select = ["E4", "E7", "E9", "F"]
+ignore = []
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Add the `line-too-long` rule to the enforced rule set.
+extend-select = ["E501"]
+
+# Ignore `E402` (import violations) in all `__init__.py` files.
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"

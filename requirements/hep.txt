@@ -5,3 +5,4 @@ uproot
 matplotlib
 scikit-learn
 html-reports>=0.2
+pyyaml

@@ -1,3 +1,2 @@
 tensorflow>=2.10
 #hopaas_client   # to be released on PyPI
-pyyaml
