@@ -1,2 +1,4 @@
-tensorflow>=2.10
+pidgan>=0.2,<0.3
+tensorflow>=2.10,<2.17
+numpy<2.0
 #hopaas_client   # to be released on PyPI
